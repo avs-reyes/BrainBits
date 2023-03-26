@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "708528750312",
+    "project_id": "brainbits",
+    "storage_bucket": "brainbits.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708528750312:android:c6cb70a20e17908b5ed35d",
+        "android_client_info": {
+          "package_name": "com.example.appia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708528750312-9kiaf38m0s8a23jc56asc54ht2oig325.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs7crsn5pRmMY3fG5kc2uh0e4mfEpnAI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708528750312-9kiaf38m0s8a23jc56asc54ht2oig325.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
