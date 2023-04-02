@@ -31,14 +31,14 @@ class _OnBoardingState extends State<OnBoarding> {
 
   List<Map<String, String>> listBoarding = [
     {
-      "titulo": "BRAINBITS",
-      "imagen": "assets/images/logo.png",
-      "descripcion": "Texto de ejemplo",
+      "titulo": "Bienvenido!",
+      "imagen": "assets/images/boardin.png",
+      "descripcion": "Sitio donde hayarás modelos de redes neuronales",
     },
     {
-      "titulo": "BRAINBITS",
+      "titulo": "Comienza tu aventura",
       "imagen": "assets/images/logo.png",
-      "descripcion": "Texto de ejemplo",
+      "descripcion": "BrainBits te aguarda",
     },
   ];
 
@@ -70,46 +70,42 @@ class _OnBoardingState extends State<OnBoarding> {
             children: List.generate(listBoarding.length,
                 (index) => pages(index: index, currentePage: currentPage)),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: SizedBox(
-              width: double.infinity,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 0),
-                    child: SizedBox(
-                      height: 50,
-                      width: 300,
-                      child: MaterialButton(
-                        color: currentPage == listBoarding.length - 1
-                            ? Colors.green
-                            : Colors.white,
-                        onPressed: () async {
+          SizedBox(
+            width: double.infinity,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 40.0),
+                  child: SizedBox(
+                    height: 50,
+                    width: 300,
+                    child: MaterialButton(
+                      color: currentPage == listBoarding.length - 1
+                          ? Colors.orange
+                          : Colors.white,
+                      onPressed: () async {
+                        currentPage == listBoarding.length - 1
+                            ? Navigator.pushReplacement(context,
+                                MaterialPageRoute(builder: (_) => MainPage()))
+                            : varController.nextPage(
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.easeInOut);
+                      },
+                      textColor: currentPage == listBoarding.length - 1
+                          ? Colors.white
+                          : Colors.grey,
+                      shape: RoundedRectangleBorder(
+                          side: const BorderSide(width: 1, color: Colors.grey),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Text(
                           currentPage == listBoarding.length - 1
-                              ? Navigator.pushReplacement(context,
-                                  MaterialPageRoute(builder: (_) => MainPage()))
-                              : varController.nextPage(
-                                  duration: const Duration(milliseconds: 500),
-                                  curve: Curves.easeInOut);
-                        },
-                        textColor: currentPage == listBoarding.length - 1
-                            ? Colors.white
-                            : Colors.grey,
-                        shape: RoundedRectangleBorder(
-                            side:
-                                const BorderSide(width: 1, color: Colors.grey),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Text(
-                            currentPage == listBoarding.length - 1
-                                ? 'Continuar'
-                                : "Siguiente",
-                            style: const TextStyle(fontSize: 16)),
-                      ),
+                              ? 'Continuar'
+                              : "Siguiente",
+                          style: const TextStyle(fontSize: 16)),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ],
@@ -127,7 +123,7 @@ AnimatedContainer pages({required int index, required int currentePage}) {
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: currentePage == index
-            ? Colors.pink
+            ? Colors.orange
             : const Color.fromARGB(255, 175, 171, 171)),
   );
 }

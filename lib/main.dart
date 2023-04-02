@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          brightness: Brightness.dark,
         ),
         home: const BodyBoarding(),
       ));

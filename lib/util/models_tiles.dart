@@ -22,7 +22,7 @@ class ModelTile extends StatelessWidget {
         width: 200,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Colors.grey,
+          color: Colors.black54,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

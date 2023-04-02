@@ -32,7 +32,7 @@ class _Mod1State extends State<Mod1> {
     final bytes = await image!.readAsBytes();
     final dio = Dio();
     var respuesta;
-    dio.options.baseUrl = 'http://192.168.0.84:8000/';
+    dio.options.baseUrl = 'https://2574-201-175-219-104.ngrok.io/';
     //dio.options.headers['Authorization'] = 'Bearer your-token';
 
     final formData = FormData.fromMap({
@@ -40,7 +40,7 @@ class _Mod1State extends State<Mod1> {
     });
 
     try {
-      final response = await dio.post('api/predict', data: formData);
+      final response = await dio.post('api/model/', data: formData);
       print(response.data);
       final respuesta = response.data;
       print('Imagen enviada');
@@ -131,30 +131,63 @@ class _Mod1State extends State<Mod1> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.file(
-                            //to show image, you type like this.
                             File(image!.path),
                             fit: BoxFit.cover,
                             width: MediaQuery.of(context).size.width,
                             height: 300,
                           ),
                         ),
-                        ElevatedButton(
-                          onPressed: () {
-                            sendImage(context);
-                          },
-                          child: const Text('Send Image'),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 25.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              sendImage(context);
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: Colors.orange,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'Send Imageeee',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
-                        ElevatedButton(
-                          onPressed: () {
-                            myAlert();
-                          },
-                          child: const Text('Upload Photo'),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 25.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              myAlert();
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: Colors.orange,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'Subir foto',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        //if image not null show the image
-                        //if image null show text
                       ],
                     ),
                   )
@@ -162,32 +195,33 @@ class _Mod1State extends State<Mod1> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.asset(
-                            'assets/images/model1.png',
-                            fit: BoxFit.cover,
-                            width: MediaQuery.of(context).size.width,
-                            height: 300,
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 25.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              myAlert();
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: Colors.orange,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'Subir foto',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            sendImage(context);
-                          },
-                          child: const Text('Send Image'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            myAlert();
-                          },
-                          child: const Text('Upload Photo'),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        //if image not null show the image
-                        //if image null show text
                       ],
                     ),
                   )

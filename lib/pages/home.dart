@@ -1,5 +1,7 @@
 import 'package:appia/pages/constants.dart';
 import 'package:appia/pages/moddetails/modelo1.dart';
+import 'package:appia/pages/moddetails/modelo2.dart';
+import 'package:appia/pages/moddetails/modelo3.dart';
 import 'package:appia/test.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     final userInfo = user.email!;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xFF0C9869),
+          backgroundColor: Colors.orange,
           elevation: 0,
         ),
         resizeToAvoidBottomInset: false,
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               DrawerHeader(
                 decoration: const BoxDecoration(
-                  color: Color(0xFF0C9869),
+                  color: Colors.orange,
                 ),
                 child: Text(
                   'Logueado: ' + user.email!,
@@ -148,7 +150,7 @@ class _HomePageState extends State<HomePage> {
               style: Theme.of(context)
                   .textTheme
                   .headline5
-                  ?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+                  ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: 31,
@@ -163,59 +165,38 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(builder: (context) => Mod1()));
                   },
                   child: ModelTile(
-                    ImagePath: 'assets/images/model1.png',
-                    Name: 'Modelo1',
+                    ImagePath: 'assets/images/model1.jpg',
+                    Name: 'Hiragana vs Katakana',
                     Des:
-                        'Modelo entrenado para el reconocimiento de números de forma escrita',
+                        'Modelo entrenado para el reconocimiento entre los alfabetos japoneses: Hiragana y Katakana',
                   ),
                 ),
-                ModelTile(
-                  ImagePath: 'assets/images/model1.png',
-                  Name: 'Modelo1',
-                  Des:
-                      'Modelo entrenado para el reconocimiento de números de forma escrita',
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Mod2()));
+                  },
+                  child: ModelTile(
+                    ImagePath: 'assets/images/model2.jpg',
+                    Name: 'Perros vs Gatos',
+                    Des:
+                        'Modelo entrenado para el reconocimiento de entre perros y gatos',
+                  ),
                 ),
-                ModelTile(
-                  ImagePath: 'assets/images/model1.png',
-                  Name: 'Modelo1',
-                  Des:
-                      'Modelo entrenado para el reconocimiento de números de forma escrita',
-                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Mod3()));
+                  },
+                  child: ModelTile(
+                    ImagePath: 'assets/images/model3.jpg',
+                    Name: 'Identificador de frutas',
+                    Des: 'Modelo que precide la fruta que está viendo.',
+                  ),
+                )
               ],
             )),
           ],
         ));
   }
 }
-
-
-
-// class _HomePageState extends State<HomePage> {
-//   final user = FirebaseAuth.instance.currentUser!;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Center(
-//           child: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           Text('HOLAAA ' + user.email!),
-//           ElevatedButton(
-//               onPressed: () {
-//                 FirebaseAuth.instance.signOut();
-//               },
-//               child: Text('LLog out')),
-//           ElevatedButton(
-//               onPressed: () {
-//                 Navigator.push(context,
-//                     MaterialPageRoute(builder: (context) => CameraBoarding()));
-//               },
-//               child: Text('Predecir'))
-//         ],
-//       )),
-//     );
-//   }
-// }
-
-
-

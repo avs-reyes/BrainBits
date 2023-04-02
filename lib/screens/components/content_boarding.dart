@@ -23,16 +23,17 @@ class ContentBoarding extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20.0),
             child: Text(
               text!,
-              style: const TextStyle(
-                  fontSize: 25, color: Color.fromARGB(255, 110, 26, 124)),
+              style: const TextStyle(fontSize: 25, color: Colors.orange),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(
+                top: 10.0, left: 30.0, right: 30.0, bottom: 0.0),
             child: Text(
               descripcion!,
               style: const TextStyle(
-                  fontSize: 17, color: Color.fromARGB(255, 155, 159, 161)),
+                  fontSize: 22, color: Color.fromARGB(255, 155, 159, 161)),
+              textAlign: TextAlign.justify,
             ),
           ),
         ],

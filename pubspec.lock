@@ -113,6 +113,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.2"
+  firebase_ml_model_downloader:
+    dependency: "direct main"
+    description:
+      name: firebase_ml_model_downloader
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0+13"
+  firebase_ml_model_downloader_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_ml_model_downloader_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1+32"
   flutter:
     dependency: "direct main"
     description: flutter
