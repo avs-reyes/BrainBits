@@ -1,13 +1,14 @@
-import 'package:appia/pages/constants.dart';
-import 'package:appia/pages/moddetails/modelo1.dart';
-import 'package:appia/pages/moddetails/modelo2.dart';
-import 'package:appia/pages/moddetails/modelo3.dart';
-import 'package:appia/test.dart';
+import 'package:appia/data/datasources/constants.dart';
+import 'package:appia/dominio/usecases/modelo1.dart';
+import 'package:appia/dominio/usecases/modelo2.dart';
+import 'package:appia/dominio/usecases/modelo3.dart';
+import 'package:appia/tests/test.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../util/models_tiles.dart';
+import '../../dominio/usecases/notifications.dart';
+import '../../dominio/models/models_tiles.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,6 +46,13 @@ class _HomePageState extends State<HomePage> {
                 title: const Text('Cerrar sesión'),
                 onTap: () {
                   FirebaseAuth.instance.signOut();
+                },
+              ),
+              ListTile(
+                title: const Text('Notificación prueba'),
+                onTap: () {
+                  NotificationService()
+                      .showNotification(title: 'Titulo', body: 'Cuerpo');
                 },
               ),
             ],
@@ -165,9 +173,9 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(builder: (context) => Mod1()));
                   },
                   child: ModelTile(
-                    ImagePath: 'assets/images/model1.jpg',
-                    Name: 'Hiragana vs Katakana',
-                    Des:
+                    imagePath: 'assets/images/model1.jpg',
+                    name: 'Hiragana vs Katakana',
+                    des:
                         'Modelo entrenado para el reconocimiento entre los alfabetos japoneses: Hiragana y Katakana',
                   ),
                 ),
@@ -177,9 +185,9 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(builder: (context) => Mod2()));
                   },
                   child: ModelTile(
-                    ImagePath: 'assets/images/model2.jpg',
-                    Name: 'Perros vs Gatos',
-                    Des:
+                    imagePath: 'assets/images/model2.jpg',
+                    name: 'Perros vs Gatos',
+                    des:
                         'Modelo entrenado para el reconocimiento de entre perros y gatos',
                   ),
                 ),
@@ -189,9 +197,9 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(builder: (context) => Mod3()));
                   },
                   child: ModelTile(
-                    ImagePath: 'assets/images/model3.jpg',
-                    Name: 'Identificador de frutas',
-                    Des: 'Modelo que precide la fruta que está viendo.',
+                    imagePath: 'assets/images/model3.jpg',
+                    name: 'Identificador de frutas',
+                    des: 'Modelo que precide la fruta que está viendo.',
                   ),
                 )
               ],

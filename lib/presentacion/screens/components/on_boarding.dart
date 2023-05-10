@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../pages/home.dart';
 import '../../pages/login.dart';
-import '../../auth/mainPage.dart';
-import '../../pages/login_page.dart';
+import '../../../data/repositories/mainPage.dart';
+import '../../../tests/login_page.dart';
 import 'content_boarding.dart';
 
 class OnBoarding extends StatefulWidget {

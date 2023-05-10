@@ -1,12 +1,12 @@
-import 'package:appia/pages/home.dart';
-import 'package:appia/pages/login.dart';
-import 'package:appia/pages/login_page.dart';
+import 'package:appia/presentacion/pages/home.dart';
+import 'package:appia/presentacion/pages/login.dart';
+import 'package:appia/tests/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'authPage.dart';
+import '../../dominio/usecases/authPage.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});

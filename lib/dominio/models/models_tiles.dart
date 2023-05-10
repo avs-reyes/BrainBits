@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 class ModelTile extends StatelessWidget {
   //const ModelTile({super.key});
-  final String ImagePath;
-  final String Name;
-  final String Des;
+  final String imagePath;
+  final String name;
+  final String des;
 
   ModelTile({
-    required this.ImagePath,
-    required this.Name,
-    required this.Des,
+    required this.imagePath,
+    required this.name,
+    required this.des,
   });
 
   @override
@@ -29,7 +29,7 @@ class ModelTile extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.asset(ImagePath),
+              child: Image.asset(imagePath),
             ),
             Padding(
               padding:
@@ -38,7 +38,7 @@ class ModelTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    Name,
+                    name,
                     style: TextStyle(fontSize: 20),
                   )
                 ],
@@ -48,7 +48,7 @@ class ModelTile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Row(children: [
                 Expanded(
-                  child: Text(Des),
+                  child: Text(des),
                 ),
               ]),
             ),
