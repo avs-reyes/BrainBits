@@ -1,14 +1,15 @@
 import 'package:appia/data/datasources/constants.dart';
-import 'package:appia/dominio/usecases/modelo1.dart';
-import 'package:appia/dominio/usecases/modelo2.dart';
-import 'package:appia/dominio/usecases/modelo3.dart';
+import 'package:appia/presentacion/pages/modelo1.dart';
+import 'package:appia/presentacion/pages/modelo2.dart';
+import 'package:appia/presentacion/pages/modelo3.dart';
+import 'package:appia/presentacion/pages/testpage.dart';
 import 'package:appia/tests/test.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../dominio/usecases/notifications.dart';
-import '../../dominio/models/models_tiles.dart';
+import 'notifications.dart';
+import '../../data/models/models_tiles.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -179,29 +180,28 @@ class _HomePageState extends State<HomePage> {
                         'Modelo entrenado para el reconocimiento entre los alfabetos japoneses: Hiragana y Katakana',
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Mod2()));
-                  },
-                  child: ModelTile(
-                    imagePath: 'assets/images/model2.jpg',
-                    name: 'Perros vs Gatos',
-                    des:
-                        'Modelo entrenado para el reconocimiento de entre perros y gatos',
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Mod3()));
-                  },
-                  child: ModelTile(
-                    imagePath: 'assets/images/model3.jpg',
-                    name: 'Identificador de frutas',
-                    des: 'Modelo que precide la fruta que está viendo.',
-                  ),
-                )
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.push(context,
+                //         MaterialPageRoute(builder: (context) => PostsPage()));
+                //   },
+                //   child: ModelTile(
+                //     imagePath: 'assets/images/bloc.png',
+                //     name: 'Bloc get, prubea',
+                //     des: 'Método get implementado con Flutter Bloc',
+                //   ),
+                // ),
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.push(context,
+                //         MaterialPageRoute(builder: (context) => Mod3()));
+                //   },
+                //   child: ModelTile(
+                //     imagePath: 'assets/images/model3.jpg',
+                //     name: 'Identificador de frutas',
+                //     des: 'Modelo que precide la fruta que está viendo.',
+                //   ),
+                // )
               ],
             )),
           ],

@@ -1,7 +1,11 @@
 import 'dart:io';
+import 'package:appia/dominio/entities/predict.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../blocs/bloc.dart';
 
 class Mod1 extends StatefulWidget {
   const Mod1({super.key});
@@ -28,42 +32,47 @@ class _Mod1State extends State<Mod1> {
     });
   }
 
-  Future<void> sendImage(BuildContext context) async {
+  Future<void> sendImage() async {
     final bytes = await image!.readAsBytes();
-    final dio = Dio();
-    var respuesta;
-    dio.options.baseUrl = 'https://2574-201-175-219-104.ngrok.io/';
-    //dio.options.headers['Authorization'] = 'Bearer your-token';
+    print(bytes.runtimeType);
+    var req = Predict(image: bytes);
+    // ignore: use_build_context_synchronously
+    BlocProvider.of<Sendprediction>(context).add(Prediction(predict: req));
+    // final dio = Dio();
+    // var respuesta;
+    // dio.options.baseUrl =
+    //     'https://d802-2806-262-3404-a3-c51d-65c8-6387-c42f.ngrok-free.app';
+    // //dio.options.headers['Authorization'] = 'Bearer your-token';
 
-    final formData = FormData.fromMap({
-      'image': MultipartFile.fromBytes(bytes, filename: 'image.jpg'),
-    });
+    // final formData = FormData.fromMap({
+    //   'image': MultipartFile.fromBytes(bytes, filename: 'image.jpg'),
+    // });
 
-    try {
-      final response = await dio.post('api/model/', data: formData);
-      print(response.data);
-      final respuesta = response.data;
-      print('Imagen enviada');
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: const Text('Respuesta'),
-              content: Text('Alfabeto: $respuesta'),
-            );
-          });
-      return respuesta;
-    } catch (e) {
-      print(e.toString());
-    }
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Respuesta'),
-            content: Text('Alfabeto: $respuesta'),
-          );
-        });
+    // try {
+    //   final response = await dio.post('api/model/', data: formData);
+    //   print(response.data);
+    //   final respuesta = response.data;
+    //   print('Imagen enviada');
+    //   showDialog(
+    //       context: context,
+    //       builder: (BuildContext context) {
+    //         return AlertDialog(
+    //           title: const Text('Respuesta'),
+    //           content: Text('Alfabeto: $respuesta'),
+    //         );
+    //       });
+    //   return respuesta;
+    // } catch (e) {
+    //   print(e.toString());
+    // }
+    // showDialog(
+    //     context: context,
+    //     builder: (BuildContext context) {
+    //       return AlertDialog(
+    //         title: Text('Respuesta'),
+    //         content: Text('Alfabeto: $respuesta'),
+    //       );
+    //     });
     // print(bytes);
   }
 
@@ -141,7 +150,7 @@ class _Mod1State extends State<Mod1> {
                           padding: EdgeInsets.symmetric(horizontal: 25.0),
                           child: GestureDetector(
                             onTap: () {
-                              sendImage(context);
+                              sendImage();
                             },
                             child: Container(
                               padding: EdgeInsets.all(20),

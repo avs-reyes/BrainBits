@@ -46,6 +46,7 @@ dependencies:
   firebase_ml_model_downloader: ^0.2.0+13
   flutter_local_notifications: ^14.0.0
   firebase_messaging: ^14.4.1
+  flutter_bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:

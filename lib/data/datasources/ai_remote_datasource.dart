@@ -1,0 +1,34 @@
+import 'package:appia/dominio/entities/predict.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
+
+abstract class PredictRemoteDataSource {
+  Future<void> predict(Predict predict);
+}
+
+class PredictRemoteDataSourceImpl extends PredictRemoteDataSource {
+  String ip = 'https://f0d3-187-244-116-138.ngrok-free.app/';
+
+  @override
+  Future<void> predict(Predict predict) async {
+    final dio = Dio();
+    var respuesta;
+    dio.options.baseUrl = ip;
+    //dio.options.headers['Authorization'] = 'Bearer your-token';
+
+    final formData = FormData.fromMap({
+      'image': MultipartFile.fromBytes(predict.image, filename: 'image.jpg'),
+    });
+    try {
+      final response = await dio.post('api/model/', data: formData);
+      print(response.data);
+      final respuesta = response.data;
+      print('Imagen enviada BLOC');
+    } catch (e) {
+      print('puta madreeee');
+      print(e.toString());
+    }
+  }
+}
