@@ -1,6 +1,5 @@
-import 'package:appia/dominio/usecases/google.dart';
+import 'package:appia/google.dart';
 import 'package:appia/presentacion/blocs/bloc.dart';
-import 'package:appia/presentacion/pages/testpage.dart';
 import 'package:appia/presentacion/pages/screens/components/on_boarding.dart';
 import 'package:appia/tests/prueba.dart';
 import 'package:appia/tests/prueba2.dart';

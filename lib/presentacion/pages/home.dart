@@ -1,15 +1,14 @@
-import 'package:appia/data/datasources/constants.dart';
+import 'package:appia/presentacion/constants.dart';
 import 'package:appia/presentacion/pages/modelo1.dart';
 import 'package:appia/presentacion/pages/modelo2.dart';
 import 'package:appia/presentacion/pages/modelo3.dart';
-import 'package:appia/presentacion/pages/testpage.dart';
 import 'package:appia/tests/test.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'notifications.dart';
-import '../../data/models/models_tiles.dart';
+import 'tiles.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

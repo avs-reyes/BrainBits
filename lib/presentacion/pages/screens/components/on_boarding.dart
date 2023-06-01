@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../home.dart';
 import '../../login.dart';
-import '../../../../data/repositories/mainPage.dart';
+import '../../../../mainPage.dart';
 import '../../../../tests/login_page.dart';
 import 'content_boarding.dart';
 

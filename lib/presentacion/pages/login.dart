@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../dominio/usecases/google.dart';
+import '../../google.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback showRegisterPage;

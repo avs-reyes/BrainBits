@@ -22,8 +22,6 @@ class _Mod1State extends State<Mod1> {
   XFile? image;
 
   final ImagePicker picker = ImagePicker();
-
-  //we can upload image from camera or from gallery based on parameter
   Future getImage(ImageSource media) async {
     var img = await picker.pickImage(source: media);
 
@@ -38,42 +36,6 @@ class _Mod1State extends State<Mod1> {
     var req = Predict(image: bytes);
     // ignore: use_build_context_synchronously
     BlocProvider.of<Sendprediction>(context).add(Prediction(predict: req));
-    // final dio = Dio();
-    // var respuesta;
-    // dio.options.baseUrl =
-    //     'https://d802-2806-262-3404-a3-c51d-65c8-6387-c42f.ngrok-free.app';
-    // //dio.options.headers['Authorization'] = 'Bearer your-token';
-
-    // final formData = FormData.fromMap({
-    //   'image': MultipartFile.fromBytes(bytes, filename: 'image.jpg'),
-    // });
-
-    // try {
-    //   final response = await dio.post('api/model/', data: formData);
-    //   print(response.data);
-    //   final respuesta = response.data;
-    //   print('Imagen enviada');
-    //   showDialog(
-    //       context: context,
-    //       builder: (BuildContext context) {
-    //         return AlertDialog(
-    //           title: const Text('Respuesta'),
-    //           content: Text('Alfabeto: $respuesta'),
-    //         );
-    //       });
-    //   return respuesta;
-    // } catch (e) {
-    //   print(e.toString());
-    // }
-    // showDialog(
-    //     context: context,
-    //     builder: (BuildContext context) {
-    //       return AlertDialog(
-    //         title: Text('Respuesta'),
-    //         content: Text('Alfabeto: $respuesta'),
-    //       );
-    //     });
-    // print(bytes);
   }
 
   //show popup dialog

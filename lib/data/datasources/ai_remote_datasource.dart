@@ -1,15 +1,12 @@
 import 'package:appia/dominio/entities/predict.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'dart:convert' as convert;
-import 'package:http/http.dart' as http;
 
 abstract class PredictRemoteDataSource {
   Future<void> predict(Predict predict);
 }
 
 class PredictRemoteDataSourceImpl extends PredictRemoteDataSource {
-  String ip = 'https://f0d3-187-244-116-138.ngrok-free.app/';
+  String ip = 'https://92a6-187-135-112-128.ngrok-free.app/';
 
   @override
   Future<void> predict(Predict predict) async {
@@ -26,6 +23,7 @@ class PredictRemoteDataSourceImpl extends PredictRemoteDataSource {
       print(response.data);
       final respuesta = response.data;
       print('Imagen enviada BLOC');
+      return respuesta;
     } catch (e) {
       print('puta madreeee');
       print(e.toString());
